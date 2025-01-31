@@ -52,19 +52,19 @@ export async function getMatch(id: string): Promise<MatchType> {
   return getAny<MatchType>(matchesCollection, id);
 }
 
-export async function newMatch(ownerId?: string): Promise<string> {
+export async function newMatch(ownerId: string): Promise<string> {
   const { canPlay } = await getGeneral();
 
   if (!canPlay) {
     throw new ServerMaintanceError();
   }
 
-  const ownerDoc = ownerId ? doc(usersCollection, ownerId) : null;
+  const ownerDoc = doc(usersCollection, ownerId);
 
   return createAny<Omit<MatchType, 'id'>>(matchesCollection, {
     rounds: 0,
     status: 'PLAYING',
-    users: ownerDoc ? [ownerDoc] : [],
+    users: [ownerDoc],
     owner: ownerDoc,
     messages: [],
   });
