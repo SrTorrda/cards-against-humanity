@@ -52,15 +52,10 @@ export function Actions() {
   }
 
   const handleNewMatch = useCallback(async () => {
-    if (!authenticated) {
-      handleShowLoginInfo();
-      return;
-    }
-
     try {
       startCreate();
 
-      const id = await newMatch(user.uid);
+      const id = await newMatch(user?.uid);
 
       navigate(`/match/${id}`);
     } catch (error) {
@@ -78,7 +73,7 @@ export function Actions() {
 
       const description = getErrorMessage(
         error,
-        'Não foi possível criar a partida.'
+        'Não foi possível criar a partida'
       );
 
       toast({
@@ -89,15 +84,7 @@ export function Actions() {
     } finally {
       stopCreate();
     }
-  }, [
-    authenticated,
-    navigate,
-    startCreate,
-    stopCreate,
-    toast,
-    user,
-    handleShowLoginInfo,
-  ]);
+  }, [navigate, startCreate, stopCreate, toast, user]);
 
   const isLoading = isCreating;
 
