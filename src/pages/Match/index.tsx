@@ -94,7 +94,7 @@ export function Match() {
               <GoBack />
             </Box>
 
-            {matchStarted && !userAlreadyPlayed && (
+            {matchStarted && !isOwner && !userAlreadyPlayed && (
               <CardsToPlay match={match!} isFirstTime={isFirstTime} />
             )}
 

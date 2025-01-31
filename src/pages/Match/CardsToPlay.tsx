@@ -41,6 +41,8 @@ export function CardsToPlay({ match, isFirstTime }: CardsToPlayProps) {
 
   const totalOfPlays = countString(question.message, CARD_TOKEN) || 1;
 
+  const isOwner = match.owner.uid === user.uid;
+
   function selectCard(cardId: string): () => void {
     return () => {
       if (selectedCardsId.includes(cardId)) {
@@ -140,7 +142,7 @@ export function CardsToPlay({ match, isFirstTime }: CardsToPlayProps) {
     );
   }
 
-  if (match.rounds === 0) {
+  if (match.rounds === 0 || isOwner) {
     return null;
   }
 
