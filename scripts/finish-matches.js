@@ -13,14 +13,15 @@ const {
 } = require('firebase/firestore');
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyASGjUugvR_zgp8xH-x8yA3FcM-FCcXR_I',
-  authDomain: 'ccch-26837.firebaseapp.com',
-  projectId: 'cch-26837',
-  storageBucket: 'cch-26837.appspot.com',
-  messagingSenderId: '16189043560',
-  appId: '1:1094359847041:web:a8ecc0bd327d85ee5f3d80',
-  measurementId: 'G-2GNVB3MBHM',
+  apiKey: "AIzaSyASGjUugvR_zgp8xH-x8yA3FcM-FCcXR_I",
+  authDomain: "cch-26837.firebaseapp.com",
+  projectId: "cch-26837",
+  storageBucket: "cch-26837.firebasestorage.app",
+  messagingSenderId: "16189043560",
+  appId: "1:16189043560:web:9cb3c833fe46609c7c9cdd",
+  measurementId: "G-NVWBVHJX4Y"
 };
+
 
 const app = initializeApp(firebaseConfig);
 
