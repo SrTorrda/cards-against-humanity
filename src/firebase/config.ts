@@ -1,6 +1,6 @@
 import { getAnalytics } from 'firebase/analytics';
 import { initializeApp } from 'firebase/app';
-
+import { browserPopupRedirectResolver } from "firebase/auth";
 import {
   getAuth,
   GoogleAuthProvider,
